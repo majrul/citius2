@@ -11,9 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity(name = "UserSubLinkEx2V2")
+//@Entity(name = "UserSubLinkEx2V2")
 @Table(name = "tbl_user_subscription_link_2_v2")
-@IdClass(UserSubscriptionLinkPK.class)
+//@IdClass(UserSubscriptionLinkPK.class)
 public class UserSubscriptionLinkV2 {
 
 	@Id
