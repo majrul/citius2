@@ -8,11 +8,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "tbl_album")
+@NamedQuery(
+		name = "albumsByReleaseYear",
+		query = "select al from Album al where year(al.releaseDate) = :yr")
 public class Album {
 
 	@Id

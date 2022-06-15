@@ -20,6 +20,9 @@ public class EmployeeTest {
 		
 		EmployeeDao dao = new EmployeeDao();
 		int empno = dao.add(emp);
+		
+		emp.setSalary(30000);
+		
 		//System.out.println(empno);
 		assertTrue(empno > 0);
 		//assert(s) missing
@@ -28,7 +31,9 @@ public class EmployeeTest {
 	@Test
 	public void fetch() {
 		EmployeeDao dao = new EmployeeDao();
-		Employee emp = dao.fetch(5);
+		Employee emp = dao.fetch(6);
+		emp.setSalary(20000);
+		dao.update(emp);
 		
 		System.out.println(emp);
 		//no println, instead we should assert

@@ -11,7 +11,8 @@ public class AlbumSongDao extends GenericDao {
 	public List<Album> findAlbumsByReleaseYear(int year) {
 		return entityManagerFactory
 				.createEntityManager()
-				.createQuery("select al from Album al where year(al.releaseDate) = :yr", Album.class)
+				//.createQuery("select al from Album al where year(al.releaseDate) = :yr", Album.class)
+				.createNamedQuery("albumsByReleaseYear", Album.class)
 				.setParameter("yr", year)
 				.getResultList();		
 	}

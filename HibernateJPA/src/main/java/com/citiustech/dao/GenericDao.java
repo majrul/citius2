@@ -23,6 +23,8 @@ public class GenericDao {
 			
 			//merge is a 2-in-1 method
 			//can be used for insert as well as update both
+			//merge will generate insert query for transient object
+			//merge will generate update query for detached object
 			entityManager.merge(obj); 
 			
 			tx.commit();

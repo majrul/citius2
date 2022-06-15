@@ -34,7 +34,26 @@ public class EmployeeDao {
 			entityManager.close();
 		}
 	}
-	
+
+	public int update(Employee emp) {
+		EntityManager entityManager = null;
+		try {
+			entityManager = entityManagerFactory.createEntityManager();
+			EntityTransaction tx = entityManager.getTransaction();
+			tx.begin();
+			
+			entityManager.merge(emp); //merge generates update query
+			
+			//entityManager.flush();
+			tx.commit();
+			
+			return emp.getEmpno();
+		}
+		finally {
+			entityManager.close();
+		}
+	}
+
 	public Employee fetch(int empno) {
 		EntityManager entityManager = null;
 		try {
